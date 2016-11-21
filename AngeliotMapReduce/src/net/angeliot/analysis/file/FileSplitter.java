@@ -53,6 +53,7 @@ public class FileSplitter {
 			}
 			in.close();
 			for (int i = 0; i < fileWriter.length; i++) {
+				fileWriter[i].flush();
 				fileWriter[i].close();
 			}
 		} catch (IOException e) {
