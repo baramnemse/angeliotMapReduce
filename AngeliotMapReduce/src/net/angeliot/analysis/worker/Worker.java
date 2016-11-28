@@ -30,6 +30,7 @@ public class Worker implements Runnable {
 		status = STATUS_WORKING;
 		System.out.println("Map Processing is start:"+dataPath);
 		program.mapProcess();
+		program.shuffle(master);
 		program.reduceProcess(master);
 		status = STATUS_READY;
 		System.out.println("Map Processing is complete:"+dataPath);

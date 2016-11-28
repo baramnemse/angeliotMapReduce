@@ -42,7 +42,7 @@ public abstract class AbstractMapReduceFunction {
 
 	abstract public String[] map(String key, String valueArray[]);
 
-	public void reduceProcess(Master master) {
+	public void shuffle(Master master){
 		for (String stringArray[] : mapResult) {
 			if (stringArray != null) {
 				String valueArray[] = new String[stringArray.length - 1];
@@ -50,6 +50,9 @@ public abstract class AbstractMapReduceFunction {
 				master.putReduceMap(stringArray[0], valueArray);
 			}
 		}
+	}
+	
+	public void reduceProcess(Master master) {
 	}
 
 	abstract public String[] reduce(String key, String valueArray1[], String valueArray2[]);
